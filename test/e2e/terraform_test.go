@@ -13,8 +13,8 @@ func TestExamplesBasic(t *testing.T) {
 	test_helper.RunE2ETest(t, "../../", "examples/basic", terraform.Options{
 		Upgrade: true,
 	}, func(t *testing.T, output test_helper.TerraformOutput) {
-		gotEchoText, ok := output["echo_text"].(string)
+		gotVMNameText, ok := output["vm_name"].(string)
 		assert.True(t, ok)
-		assert.Regexp(t, regexp.MustCompile("Hello, world!"), gotEchoText)
+		assert.Regexp(t, regexp.MustCompile("Hello, world!"), gotVMNameText)
 	})
 }
